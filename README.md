@@ -12,11 +12,6 @@ by name and duration. In addition, video data must be stored in a Spring Data JP
 You should note that this assignment also requires concepts used in the first assignment, such
 as request mapping and JSON marshalling in request/response bodies. 
 
-## Before You Start
-
-Open the "assignment.edn" file in the root of the project directory and replace "bob_jones"
-with your Coursera username. Do not put your password into this file or change any other lines.
-To open the file in Eclipse, righ-click on the file, "Open With", "Text Editor".
 
 ## Running the Application
 
