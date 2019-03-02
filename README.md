@@ -71,7 +71,7 @@ GET /video/{id}
 POST /video/{id}/like
    - Allows a user to like a video. Returns 200 Ok on success, 404 if the
      video is not found, or 400 if the user has already liked the video.
-   - The service should should keep track of which users have liked a video and
+   - The service should keep track of which users have liked a video and
      prevent a user from liking a video twice. A POJO Video object is provided for 
      you and you will need to annotate and/or add to it in order to make it persistable.
    - A user is only allowed to like a video once. If a user tries to like a video
