@@ -47,9 +47,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     
     compile("org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE")
-    compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig:2.3.4.RELEASE")
- //   compile("org.springframework.security.oauth:spring-security-oauth2")
- //   compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig")
     
     compile("org.hsqldb:hsqldb")
     
@@ -71,5 +68,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '5.0'
 }
