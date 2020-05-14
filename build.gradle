@@ -62,11 +62,10 @@ dependencies {
     
     compile("com.github.davidmarquis:fluent-interface-proxy:1.3.0")
     compile(":mobilecloud.handin:1.0.0")
-    compile(":video.like.test:1.0.0")
     compile(":autograder.handin:1.0.0")
     compile(":autograder.spec:1.0.0")
     
-    testCompile("junit:junit")
+    testCompile("junit:junit:4.13")
 }
 
 mainClassName = 'org.magnum.dataup.model.Application'
