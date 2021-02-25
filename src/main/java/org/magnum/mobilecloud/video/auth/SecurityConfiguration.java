@@ -8,18 +8,35 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @Order(1)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final String USERNAME1 = "admin";
-    private final String USERNAME2 = "user0";
-    private final String PASSWORD = "pass";
+    /**
+     *
+     *  WARNING!!!!!
+     *
+     * Do not use this code in production.
+     *
+     *
+     * Please understand Spring Security in detail and
+     * configure the application appropriately!
+     *
+     * https://spring.io/guides/topicals/spring-security-architecture
+     */
+    @Value("${users.user1.name}")
+    private String user1;
+
+    @Value("${users.user2.name}")
+    private String user2;
+
+    @Value("${users.user1.password}")
+    private String user1Password;
+
+    @Value("${users.user2.password}")
+    private String user2Password;
 
     @Override
     @Bean
@@ -41,12 +58,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser(USERNAME1)
-                .password(passwordEncoder().encode(PASSWORD))
+                .withUser(user1)
+                .password(passwordEncoder().encode(user1Password))
                 .roles("USER","ADMIN")
                 .and()
-                .withUser(USERNAME2)
-                .password(PASSWORD)
+                .withUser(user2)
+                .password(user2Password)
                 .roles("USER");
 
     }

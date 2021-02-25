@@ -1,6 +1,7 @@
 package org.magnum.mobilecloud.video.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,8 +15,27 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    private final String CLIENT_ID = "mobile";
-    private final String CLIENT_SECRET = "";
+    /**
+     *
+     *  WARNING!!!!!
+     *
+     * Do not use this code in production.
+     *
+     * This code is being provided solely for
+     * use in completing the assignment. Prior
+     * to implementing an authorization server,
+     * you should thoroughly read through the
+     * documentation and secure the server
+     * appropriately for your use case:
+     *
+     * https://docs.spring.io/spring-security-oauth2-boot/docs/2.3.3.RELEASE/reference/html5/#oauth2-boot-authorization-server-password-grant
+     *
+     */
+    @Value("${oauth.client.id}")
+    private String clientId;
+
+    @Value("${oauth.client.secret}")
+    private String clientSecret;
 
     private PasswordEncoder passwordEncoder;
 
@@ -43,8 +63,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient(CLIENT_ID)
-                .secret(passwordEncoder.encode(CLIENT_SECRET))
+                .withClient(clientId)
+                .secret(passwordEncoder.encode(clientSecret))
                 .authorizedGrantTypes("password","authorization_code")
                 .scopes("user_info")
                 .autoApprove(true);

@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
+import org.magnum.mobilecloud.video.TestData;
 import org.magnum.mobilecloud.video.client.SecuredRestBuilder;
 import org.magnum.mobilecloud.video.client.VideoSvcApi;
 import org.magnum.mobilecloud.video.repository.Video;
@@ -48,7 +49,7 @@ public class AutoGradingTest {
 	private final String USERNAME2 = "user0";
 	private final String PASSWORD = "pass";
 	private final String CLIENT_ID = "mobile";
-	private final String CLIENT_SECRET = "pass";
+	private final String CLIENT_SECRET = "";
 
 	private VideoSvcApi readWriteVideoSvcUser1 = new SecuredRestBuilder()
 			.setEndpoint(TEST_URL)
