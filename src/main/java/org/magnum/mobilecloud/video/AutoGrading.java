@@ -17,6 +17,8 @@
  */
 package org.magnum.mobilecloud.video;
 
+import org.magnum.mobilecloud.video.AutoGradeSpec;
+
 /**
  * This class allows you to estimate the score for your solution before handing
  * it in.

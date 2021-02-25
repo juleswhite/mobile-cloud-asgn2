@@ -1,75 +1,90 @@
-buildscript {
-	ext {
-		springBootVersion = '2.1.0.RELEASE'
-	}
-    repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
-        mavenLocal()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
-    }
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-apply plugin: 'war'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-war {
-    baseName = 'gs-convert-jar-to-war'
-    version =  '0.1.0'
-}
+group = 'edu.vanderbilt.asgn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-snapshot" }
-    maven { url "http://maven.springframework.org/milestone" }
-    
     flatDir {
-    	dirs 'lib'
+        dirs 'lib'
     }
 }
 
 dependencies {
 
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-aop")
-    compile("org.springframework.boot:spring-boot-starter-test")
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.data:spring-data-rest-webmvc")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    
-    compile("org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE")
-    compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig:2.3.4.RELEASE")
- //   compile("org.springframework.security.oauth:spring-security-oauth2")
- //   compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig")
-    
-    compile("org.hsqldb:hsqldb")
-    
-    compile("com.google.guava:guava:17.0")
-    compile("org.apache.commons:commons-lang3:3.3.2")
-    compile("com.squareup.retrofit:retrofit:1.6.0")
-    compile("com.squareup.okhttp:okhttp:1.6.0")
-    compile("com.squareup.okhttp:okhttp-urlconnection:1.6.0")
-    
-    compile("commons-io:commons-io:2.4")
-    
-    compile("com.github.davidmarquis:fluent-interface-proxy:1.3.0")
-    compile(":mobilecloud.handin:1.0.0")
-    compile(":video.like.test:1.0.0")
-    compile(":autograder.handin:1.0.0")
-    compile(":autograder.spec:1.0.0")
-    
-    testCompile("junit:junit")
+//    implementation("org.springframework.boot:spring-boot-starter-web")
+//    implementation("org.springframework.boot:spring-boot-starter-actuator")
+//    implementation("org.springframework.boot:spring-boot-starter-aop")
+//    implementation("org.springframework.boot:spring-boot-starter-test")
+//    implementation("org.springframework.boot:spring-boot-starter-jetty")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//    implementation("org.springframework.data:spring-data-rest-webmvc")
+//    implementation("org.springframework.boot:spring-boot-starter-security")
+//
+//    implementation("org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE")
+//
+//    implementation("com.google.guava:guava:17.0")
+//    implementation("org.apache.commons:commons-lang3:3.3.2")
+//    implementation("com.squareup.retrofit:retrofit:1.6.0")
+//    implementation("com.squareup.okhttp:okhttp:1.6.0")
+//    implementation("com.squareup.okhttp:okhttp-urlconnection:1.6.0")
+//
+//    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+//    implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+//    implementation 'com.sun.xml.bind:jaxb-impl:2.3.1'
+//    implementation 'org.javassist:javassist:3.25.0-GA'
+//    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+//
+//    implementation("commons-io:commons-io:2.4")
+//
+//    implementation("com.github.davidmarquis:fluent-interface-proxy:1.3.0")
+//    implementation(":mobilecloud.handin:1.0.0")
+//    implementation(":video.like.test:1.0.0")
+//    implementation(":autograder.handin:1.0.0")
+//    implementation(":autograder.spec:1.0.0")
+//
+//    runtimeOnly 'com.h2database:h2'
+//
+//    implementation("junit:junit")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE")
+
+    implementation("org.apache.httpcomponents:httpclient:4.5.6")
+    implementation("com.google.guava:guava:17.0")
+    implementation("org.apache.commons:commons-lang3:3.3.2")
+    implementation("com.squareup.retrofit:retrofit:1.6.0")
+    implementation("com.squareup.okhttp:okhttp:1.6.0")
+    implementation("com.squareup.okhttp:okhttp-urlconnection:1.6.0")
+
+    implementation("org.hsqldb:hsqldb")
+
+    implementation("com.google.guava:guava:17.0")
+    implementation("org.apache.commons:commons-lang3:3.3.2")
+    implementation("com.squareup.retrofit:retrofit:1.6.0")
+    implementation("commons-io:commons-io:2.4")
+
+    implementation("com.github.davidmarquis:fluent-interface-proxy:1.3.0")
+    implementation(":mobilecloud.handin:1.0.0")
+    implementation(":video.like.test:1.0.0")
+    implementation(":autograder.handin:1.0.0")
+    implementation(":autograder.spec:1.0.0")
+
+    implementation("junit:junit")
+
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+
+test {
+    useJUnitPlatform()
 }
