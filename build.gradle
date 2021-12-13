@@ -45,7 +45,7 @@ dependencies {
 
     implementation("junit:junit")
 
-    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.15.0'
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
